@@ -32,11 +32,17 @@ A Docker-based C++ development environment with OpenCV (latest) and CUDA 13.0 su
 ├── docker-run.sh               # Run container with GPU, X11, and volume mount
 ├── docker-clean.sh             # Remove the built Docker image
 ├── Makefile                    # Compile & run the test program inside the container
-├── src                         # Source Code folder
-|   └── test_opencv_cuda.cpp    # Sample program: draws text on an image rotates using CUDA and shows on screen
+├── img/                        # Screenshots
+│   └── sshot.jpg               # Screenshot of the running application
+├── src/                        # Source code folder
+│   └── test_opencv_cuda.cpp    # Sample program: draws text on an image, rotates using CUDA and shows on screen
 └── build/                      # Compilation output (created by make)
     └── test_opencv_cuda        # Compiled binary
 ```
+
+## Screenshot
+
+![App Screenshot](img/sshot.jpg)
 
 ## Quick Start
 
