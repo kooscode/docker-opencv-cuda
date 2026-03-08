@@ -50,7 +50,30 @@ int main() {
 
     // --- Display (requires X11 / display server) ---
     cv::imshow("Rotated 90 CCW using CUDA", rotated);
-    cv::waitKey(0);
+
+    // If we have a webcam available, grab video frames and display 
+    // until ESC is pressed..
+    cv::VideoCapture cap(0);  // 0 = /dev/video0
+    cv::Mat frame;
+    if (!cap.isOpened()) 
+    {  
+        std::cout << "ERROR OPENING WEB CAM ON /dev/video0" << std::endl;
+        cv::waitKey(0);
+    }
+    else
+    {
+        int inkey = 0;
+        while (inkey != 0x1B) //wait for ESC
+        {
+            cap >> frame; // grab a frame
+            cv::Mat frame_flip;
+            cv::flip(frame, frame_flip, 1);
+            cv::imshow("Webcam", frame_flip);
+            inkey = cv::waitKey(30);
+        }
+
+    }
+
 
     return 0;
 }

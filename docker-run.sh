@@ -7,6 +7,8 @@ xhost +local:docker
 # Run container with proper volume mounting and GPU access
 echo "Starting development container..."
 docker run --gpus all --net=host --ipc=host \
+    --privileged \
+    -v /dev:/dev \
     -e DISPLAY=$DISPLAY \
     -e XAUTHORITY=$XAUTHORITY \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
